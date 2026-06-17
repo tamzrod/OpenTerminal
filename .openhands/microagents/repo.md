@@ -464,3 +464,10 @@ They are not project memory.
 If internal planner conflicts with repository files:
 repository files win.
 
+## Activity Logging Rule
+Every development task must update:
+.agent/ACTIVITY.md
+Before task: record objective.
+During task: record files inspected and changed.
+After task: record verification and commit.
+ACTIVITY.md is append only.
