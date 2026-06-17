@@ -343,3 +343,58 @@ Choose a different method.
 Repeating a failed edit command is a bug.
 
 
+
+## Tool Call Schema Rule
+
+
+Before calling any tool:
+
+
+1. Inspect required parameter types.
+
+
+2. Provide parameters exactly matching schema.
+
+
+Examples:
+
+
+Array parameters:
+Correct:
+task_list:
+[
+ "step one",
+ "step two"
+]
+
+
+Wrong:
+task_list:
+"step one, step two"
+
+
+String parameters:
+Provide only string values.
+
+
+Boolean parameters:
+Provide only true or false.
+
+
+If a tool call fails because of parameter validation:
+
+
+STOP.
+
+
+Read the error.
+
+
+Do not retry the same invalid call.
+
+
+Correct the parameter format before trying again.
+
+
+A failed tool call repeated without changes is a loop bug.
+
