@@ -429,3 +429,38 @@ read file first.
 After modifying:
 verify result.
 
+
+## Project State Authority Rule
+
+For repository development tasks:
+
+The source of truth is:
+
+.agent/TODO.md
+.agent/PROGRESS.md
+docs/roadmap.md
+
+Do NOT use internal task trackers or planning tools
+to determine repository progress.
+
+Workflow:
+
+1. Read project files directly using terminal.
+
+Example:
+
+cat .agent/TODO.md
+cat .agent/PROGRESS.md
+
+2. Determine next work item from these files.
+
+3. Execute the task.
+
+4. Update the same files.
+
+Internal planning tools are only temporary reasoning aids.
+They are not project memory.
+
+If internal planner conflicts with repository files:
+repository files win.
+
