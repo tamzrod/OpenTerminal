@@ -286,3 +286,60 @@ Never commit without updating project tracking files.
 ---
 
 
+
+## File Editing Safety Rule
+
+
+Before modifying any file:
+
+
+1. Choose correct method:
+
+
+Append new content:
+- use shell append (cat >> file)
+- do not use replace
+
+
+Modify existing content:
+- first locate exact unique text
+- verify match count
+
+
+2. Replacement rules:
+
+
+Never use:
+- empty old string
+- generic anchors
+- text appearing multiple times
+
+
+Before replace:
+Run search/count first.
+
+
+Replacement allowed only when match count = 1.
+
+
+3. Failed edit recovery:
+
+
+If any edit operation fails:
+
+
+STOP.
+
+
+Do not retry the same operation.
+
+
+Read the error message.
+
+
+Choose a different method.
+
+
+Repeating a failed edit command is a bug.
+
+
