@@ -398,3 +398,34 @@ Correct the parameter format before trying again.
 
 A failed tool call repeated without changes is a loop bug.
 
+
+## Preferred File Editing Method
+
+
+Prefer deterministic shell operations.
+
+
+Priority:
+
+
+1. cat > file
+2. cat >> file
+3. create temp file + diff + mv
+4. sed with verified line match
+5. str_replace only as last resort
+
+
+str_replace is forbidden for:
+- appending
+- adding new sections
+- large files
+- unknown content
+
+
+Before modifying:
+read file first.
+
+
+After modifying:
+verify result.
+
