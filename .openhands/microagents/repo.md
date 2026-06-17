@@ -471,3 +471,90 @@ Before task: record objective.
 During task: record files inspected and changed.
 After task: record verification and commit.
 ACTIVITY.md is append only.
+## Strict TODO State Management Rule
+
+.agent/TODO.md is the primary task state machine.
+
+Every development cycle MUST follow:
+
+1. Before starting work:
+
+Read:
+
+.agent/TODO.md
+.agent/PROGRESS.md
+
+Identify exactly one unchecked item.
+
+2. Complexity check:
+
+Before executing a TODO item:
+
+If the task requires:
+- multiple files
+- multiple components
+- multiple decisions
+- unclear completion criteria
+
+DO NOT start implementation.
+
+First expand the task into subtasks.
+
+Example:
+
+Before:
+
+- [ ] Command line interface
+
+After:
+
+- [ ] Command line interface
+  - [ ] Create CLI package structure
+  - [ ] Add command parser
+  - [ ] Add help command
+  - [ ] Add version command
+  - [ ] Add CLI tests
+
+
+3. Task completion rule:
+
+A task is NOT complete until:
+
+- deliverable exists
+- verification passed
+- matching TODO checkbox changed from [ ] to [x]
+- PROGRESS.md updated
+- ACTIVITY.md updated
+
+Never report:
+"task completed"
+
+if TODO.md was not updated.
+
+
+4. Parent task rule:
+
+Do not check parent task complete while subtasks remain open.
+
+Wrong:
+
+[x] CLI
+  [ ] tests
+
+
+Correct:
+
+[ ] CLI
+  [x] parser
+  [ ] tests
+
+
+5. Commit rule:
+
+Every commit that completes work must include:
+
+- changed files
+- TODO.md update
+- PROGRESS.md update
+- ACTIVITY.md update
+
