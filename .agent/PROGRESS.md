@@ -4,8 +4,8 @@
 # PROGRESS
 
 ## Current Milestone: Initial Setup
-- Last completed task: Populate TODO from docs/roadmap.md
+- Last completed task: Update PROGRESS.md with current state
 - Current blocker: None
-- Next recommended task: Update PROGRESS.md with current state
+- Next recommended task: Verify once
 
 
