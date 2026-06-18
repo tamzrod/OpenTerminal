@@ -14,14 +14,16 @@ func NewRunner() *Runner {
 
 func (r *Runner) Run(text string) Command {
 	cmd := Command{
-		Text: text,
+		Text:   text,
 		Status: Pending,
 	}
 
 	if !Validate(cmd) {
 		cmd.Status = Skipped
 		cmd.Error = "invalid command"
+
 		r.audit.Record(cmd)
+
 		return cmd
 	}
 
