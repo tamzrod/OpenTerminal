@@ -11,6 +11,12 @@ func NewExecutor() *Executor {
 }
 
 func (e *Executor) Run(cmd Command) Command {
+	if !Allow(cmd) {
+		cmd.Status = Skipped
+		cmd.Error = "blocked by policy"
+		return cmd
+	}
+
 	out, err := exec.Command("sh", "-c", cmd.Text).CombinedOutput()
 
 	cmd.Output = string(out)
