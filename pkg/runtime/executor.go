@@ -4,10 +4,14 @@ import (
 	"os/exec"
 )
 
-type Executor struct{}
+type Executor struct {
+	context Context
+}
 
 func NewExecutor() *Executor {
-	return &Executor{}
+	return &Executor{
+		context: NewContext(),
+	}
 }
 
 func (e *Executor) Run(cmd Command) Command {
@@ -17,7 +21,10 @@ func (e *Executor) Run(cmd Command) Command {
 		return cmd
 	}
 
-	out, err := exec.Command("sh", "-c", cmd.Text).CombinedOutput()
+	process := exec.Command("sh", "-c", cmd.Text)
+	process.Dir = e.context.WorkDir
+
+	out, err := process.CombinedOutput()
 
 	cmd.Output = string(out)
 
