@@ -43,3 +43,56 @@ git push -u origin openhands
 Forbidden:
 git push origin main
 git merge openhands into main
+-e 
+Milestone Branch Rules
+
+Purpose:
+Milestones are stable recovery checkpoints.
+
+Branch roles:
+
+main:
+- current validated project state
+- receives only human approved merges
+- not used for experiments
+
+openhands:
+- AI agent development branch
+- auto commit allowed
+- auto push allowed
+- temporary working state
+
+milestone/*:
+- frozen known-good checkpoints
+- created manually by humans only
+- never used as active development branch
+- never auto pushed by agents
+- never rewritten
+
+Milestone creation rule:
+
+Create milestone only after:
+- tests pass
+- architecture is stable
+- human approves current main state
+
+Examples:
+
+milestone/run-mode-stable
+milestone/agent-governance
+milestone/v0.1
+
+Recovery rule:
+
+If main becomes unstable:
+- create recovery branch from milestone
+- do not modify milestone directly
+
+Authority:
+
+Agent:
+openhands only
+
+Human:
+main
+milestone/*
