@@ -17,7 +17,7 @@ func NewAudit() *Audit {
 
 func (a *Audit) Record(cmd Command) {
 	a.entries = append(a.entries, AuditEntry{
-		Time: time.Now(),
+		Time:    time.Now(),
 		Command: cmd,
 	})
 }
