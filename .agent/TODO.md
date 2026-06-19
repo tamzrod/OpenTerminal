@@ -4,7 +4,7 @@
 - [ ] Validate architecture before implementation
 - [ ] Architecture documentation complete
 - [ ] Internal contracts defined in contracts.md
-- [ ] Acceptance tests defined in testing.md
+- [x] Acceptance tests defined in testing.md
 
 ## v0.1 CLI Core
 - [ ] Command line interface

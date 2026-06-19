@@ -6,7 +6,7 @@ func TestAuditRecordsCommand(t *testing.T) {
 	audit := NewAudit()
 
 	cmd := Command{
-		Text: "go test ./...",
+		Text:   "go test ./...",
 		Status: Success,
 		Output: "PASS",
 	}
