@@ -1,0 +1,9 @@
+LINEAR Execution State Machine
+-e 
+Steps:
+VERIFY
+INSPECT
+PLAN
+IMPLEMENT
+TEST
+COMPLETE
